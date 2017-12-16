@@ -1,6 +1,6 @@
 {
   "name": "textfield",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Yet another react component for an input",
   "main": "dist/index.js",
   "scripts": {
