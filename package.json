@@ -4,6 +4,7 @@
   "description": "Yet another react component for an input",
   "main": "dist/index.js",
   "scripts": {
+    "postinstall": "npm run build",
     "build": "webpack"
   },
   "keywords": [
