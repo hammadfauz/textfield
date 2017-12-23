@@ -6,6 +6,11 @@ class TextInput extends React.Component{
   constructor(props) {
     super(props);
     this.state = {focused:false};
+    if (props.palette) {
+      this.palette = this.props.palette;
+    }else{
+      this.palette = palette;
+    }
     this.setFocus = this.setFocus.bind(this);
     this.unsetFocus = this.unsetFocus.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -43,23 +48,23 @@ class TextInput extends React.Component{
       pseudo : {
         'position' : 'relative',
         'borderTop' : this.state.focused?
-          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : palette.grey)
+          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : this.palette.grey)
           :'1px solid ' + (this.props.errorText?
-            palette.errorOrange:palette.greyLight),
+            this.palette.errorOrange:this.palette.greyLight),
         'borderRight' : this.state.focused?
-          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : palette.grey)
+          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : this.palette.grey)
           :'1px solid ' + (this.props.errorText?
-            palette.errorOrange:palette.greyLight),
+            this.palette.errorOrange:this.palette.greyLight),
         'borderBottom' : this.state.focused?
-          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : palette.grey)
+          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : this.palette.grey)
           :'1px solid ' + (this.props.errorText?
-            palette.errorOrange:palette.greyLight),
+            this.palette.errorOrange:this.palette.greyLight),
         'borderLeft' : this.state.focused?
-          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : palette.grey)
+          '1px solid ' + (this.props.focusBorder ? this.props.focusBorder : this.palette.grey)
           :'1px solid ' + (this.props.errorText?
-            palette.errorOrange:palette.greyLight),
+            this.palette.errorOrange:this.palette.greyLight),
         'backgroundColor' : this.props.disabled?
-          '#c3c3c3':palette.white,
+          '#c3c3c3':this.palette.white,
         'color':this.props.disable?'#868686':null,
         'borderRadius' : this.props.borderRadius ? this.props.borderRadius : '2px',
         'maxWidth' : this.props.fullWidth?
@@ -76,7 +81,7 @@ class TextInput extends React.Component{
       textField : {
         'border' : 'none',
         'outline' : 'none',
-        'backgroundColor' : this.props.disabled? '#c3c3c3':palette.white,
+        'backgroundColor' : this.props.disabled? '#c3c3c3':this.palette.white,
         'lineHeight' : this.props.type==='multiline'?
           null:this.props.height||'45px',
         'height': this.props.type === 'multiline'?
@@ -88,7 +93,7 @@ class TextInput extends React.Component{
       },
       iconContainerRight : {
         'color' : this.state.focused?
-          palette.secondaryLight:palette.greyLight,
+          this.palette.secondaryLight:this.palette.greyLight,
         'position' : 'absolute',
         'right' : '10px',
         'top' : '0px',
@@ -100,7 +105,7 @@ class TextInput extends React.Component{
       },
       iconContainerLeft : {
         'color' : this.state.focused?
-          palette.blueLight:palette.greyLight,
+          this.palette.blueLight:this.palette.greyLight,
         'position' : 'absolute',
         'left' : '10px',
         'top' : '0px',
@@ -111,8 +116,8 @@ class TextInput extends React.Component{
         'transition' : 'all 300ms ease-in-out'
       },
       error : {
-        'color' : palette.white,
-        'backgroundColor' : palette.errorOrange,
+        'color' : this.palette.white,
+        'backgroundColor' : this.palette.errorOrange,
         'textAlign' : 'center',
         'fontSize' : '11pt',
         'position' : 'absolute',
@@ -120,7 +125,7 @@ class TextInput extends React.Component{
           null:isMobile?'89%': '380px',
         'margin' : 'auto',
         'border' : !this.props.fullWidth&&this.props.errorText?
-          '1px solid '+palette.errorOrange:null,
+          '1px solid '+this.palette.errorOrange:null,
         'left' : '0px',
         'right' : '0px',
         'bottom' : this.props.errorText?'-8px':'0px',
@@ -130,15 +135,15 @@ class TextInput extends React.Component{
         'overflow' : 'hidden'
       },
       success : {
-        'color' : palette.white,
-        'backgroundColor' : palette.successGreen,
+        'color' : this.palette.white,
+        'backgroundColor' : this.palette.successGreen,
         'textAlign' : 'center',
         'fontSize' : '11pt',
         'position' : 'absolute',
         'maxWidth' : this.props.fullWidth?
           null:isMobile?'89%': '380px',
         'border' : !this.props.fullWidth&&this.props.successText?
-          '1px solid '+palette.successGreen:null,
+          '1px solid '+this.palette.successGreen:null,
         'margin' : 'auto',
         'left' : '0px',
         'right' : '0px',
@@ -223,6 +228,7 @@ TextInput.propTypes = {
   inputStyle : PropTypes.object,
   pseudoStyle : PropTypes.object,
   textSize : PropTypes.string,
-  height : PropTypes.string
+  height : PropTypes.string,
+  palette : PropTypes.object
 };
 module.exports = TextInput;
