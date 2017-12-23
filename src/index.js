@@ -59,7 +59,7 @@ class TextInput extends React.Component{
           :'1px solid ' + (this.props.errorText?
             palette.errorOrange:palette.greyLight),
         'backgroundColor' : this.props.disabled?
-          '#c3c3c3':palette.whiteReal,
+          '#c3c3c3':palette.white,
         'color':this.props.disable?'#868686':null,
         'borderRadius' : this.props.borderRadius ? this.props.borderRadius : '2px',
         'maxWidth' : this.props.fullWidth?
@@ -76,7 +76,7 @@ class TextInput extends React.Component{
       textField : {
         'border' : 'none',
         'outline' : 'none',
-        'backgroundColor' : this.props.disabled? '#c3c3c3':palette.whiteReal,
+        'backgroundColor' : this.props.disabled? '#c3c3c3':palette.white,
         'lineHeight' : this.props.type==='multiline'?
           null:this.props.height||'45px',
         'height': this.props.type === 'multiline'?
@@ -88,7 +88,7 @@ class TextInput extends React.Component{
       },
       iconContainerRight : {
         'color' : this.state.focused?
-          palette.blueLight:palette.greyLight,
+          palette.secondaryLight:palette.greyLight,
         'position' : 'absolute',
         'right' : '10px',
         'top' : '0px',
@@ -111,7 +111,7 @@ class TextInput extends React.Component{
         'transition' : 'all 300ms ease-in-out'
       },
       error : {
-        'color' : palette.whiteReal,
+        'color' : palette.white,
         'backgroundColor' : palette.errorOrange,
         'textAlign' : 'center',
         'fontSize' : '11pt',
@@ -130,15 +130,15 @@ class TextInput extends React.Component{
         'overflow' : 'hidden'
       },
       success : {
-        'color' : palette.whiteReal,
-        'backgroundColor' : palette.green,
+        'color' : palette.white,
+        'backgroundColor' : palette.successGreen,
         'textAlign' : 'center',
         'fontSize' : '11pt',
         'position' : 'absolute',
         'maxWidth' : this.props.fullWidth?
           null:isMobile?'89%': '380px',
         'border' : !this.props.fullWidth&&this.props.successText?
-          '1px solid '+palette.green:null,
+          '1px solid '+palette.successGreen:null,
         'margin' : 'auto',
         'left' : '0px',
         'right' : '0px',
