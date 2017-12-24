@@ -231,4 +231,4 @@ TextInput.propTypes = {
   height : PropTypes.string,
   palette : PropTypes.object
 };
-module.exports = TextInput;
+export default TextInput;
